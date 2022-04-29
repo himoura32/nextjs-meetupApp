@@ -1,28 +1,23 @@
+import Head from "next/head";
+
 import { MongoClient } from "mongodb";
 
 import MeetupList from "../components/meetups/MeetupList";
-
-// const DUMMY_MEETUPS = [
-//   {
-//     id: "m1",
-//     title: "A First Meetup",
-//     image:
-//       "https://upload.wikimedia.org/wikipedia/commons/3/3b/Frauenkirche_and_Neues_Rathaus_Munich_March_2013.JPG",
-//     address: "Some address 5, 12345 Munich",
-//     desc: "This is a first Meetup!",
-//   },
-//   {
-//     id: "m2",
-//     title: "A Second Meetup",
-//     image:
-//       "https://upload.wikimedia.org/wikipedia/commons/d/da/Allianz_arena_golden_hour_Richard_Bartz.jpg",
-//     address: "Some address 10, 54321 Frankfurt",
-//     desc: "This is a second Meetup!",
-//   },
-// ];
+import { Fragment } from "react";
 
 function HomePage(props) {
-  return <MeetupList meetups={props.meetups} />;
+  return (
+    <Fragment>
+      <Head>
+        <title>React Meetups</title>
+        <meta
+          name="description"
+          content="Browse a huge list of highly active React meetups!"
+        />
+      </Head>
+      <MeetupList meetups={props.meetups} />
+    </Fragment>
+  );
 }
 
 // export async function getServerSideProps(context) {
